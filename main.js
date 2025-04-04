@@ -1,17 +1,7 @@
-async function foo() {
-  const p1 = new Promise((resolve, reject) => {
-    setTimeout(() => resolve("données recuperées"), 1000);
-  });
+// comment faire un appel basique d'API avec XHR
 
-  let result = await p1;
-  console.log(result);
-}
+const xhr = new XMLHttpRequest();
 
-foo();
+xhr.open("GET", "http://localhost:3000/api/pokemons");
 
-/*
-
-Note : 
-* async : retourne toujours une promesse qui s'auto-resoud ;(on peux ecrire des promesses a l'interieur d'une fonction avec async)
-* await : attendre toute les resultats du promesse qu'on veut !
-*/
+xhr.send();
