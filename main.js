@@ -1,17 +1,17 @@
-const promise1 = new Promise((resolve, reject) => {
-  console.log("Hello async");
-
-//   resolve("les données sont arivées");
-
-    reject("les données ne sont pas arivées")
-});
-
-promise1
-  .then((value) => {
-    console.log(value);
-  })
-  .catch(() => {
-    console.log("Il y a eu une erreur lor de la recuperation des donnees !");
+async function foo() {
+  const p1 = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("données recuperées"), 1000);
   });
 
-console.log(promise1);
+  let result = await p1;
+  console.log(result);
+}
+
+foo();
+
+/*
+
+Note : 
+* async : retourne toujours une promesse qui s'auto-resoud ;(on peux ecrire des promesses a l'interieur d'une fonction avec async)
+* await : attendre toute les resultats du promesse qu'on veut !
+*/
